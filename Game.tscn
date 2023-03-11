@@ -1,18 +1,48 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://4tlem7pt3vuf"]
 
-[ext_resource path="res://ECS/Player.tscn" type="PackedScene" id=1]
+[ext_resource type="PackedScene" uid="uid://dhwdam41r63sp" path="res://ECS/Players/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dn8x20n1ny1m0" path="res://ECS/ObjectPooler.tscn" id="2"]
+[ext_resource type="Script" path="res://Game.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://njt1wgwpygau" path="res://assets/environment/Lake.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bafgrp0n8qjnt" path="res://assets/environment/Evergreen1.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bi2wfbspnegt" path="res://assets/environment/Evergreen.tscn" id="6_4u1sv"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1038.0
-margin_bottom = 603.0
-color = Color( 0.160784, 0.45098, 0, 1 )
+[node name="ObjectPooler" parent="." instance=ExtResource("2")]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 26, 14 )
+[node name="Lake" parent="." instance=ExtResource("5")]
+polygon = PackedVector2Array(342, 51, 226, 75, 182, 98, 146, 133, 130, 167, 122, 201, 124, 236, 133, 262, 158, 284, 206, 296, 251, 288, 295, 253, 351, 175, 389, 148, 418, 119, 435, 110, 464, 107, 480, 118, 487, 131, 487, 173, 494, 228, 503, 270, 542, 333, 585, 379, 640, 414, 681, 436, 751, 453, 832, 452, 892, 437, 945, 422, 991, 398, 1016, 338, 1018, 303, 995, 267, 944, 242, 882, 227, 813, 225, 757, 215, 709, 194, 678, 160, 653, 122, 628, 95, 606, 61, 547, 37, 452, 34)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-zoom = Vector2( 0.5, 0.5 )
+position = Vector2(368, 176)
+rotation = 2.87979
+scale = Vector2(1, 1)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="HUD" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Ducks" type="Node2D" parent="."]
+
+[node name="Player" parent="Ducks" instance=ExtResource("1")]
+position = Vector2(368, 176)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ducks/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Evergreen" parent="Environment" instance=ExtResource("6")]
+
+[node name="Evergreen3" parent="Environment" instance=ExtResource("6_4u1sv")]
+
+[editable path="Ducks/Player"]

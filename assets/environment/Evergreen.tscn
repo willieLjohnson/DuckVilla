@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi2wfbspnegt"]
+
+[ext_resource type="Script" path="res://ECS/common/Colorizer.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://d3rw0s7eglcg" path="res://ECS/common/SoftCollision.tscn" id="2_cvbtl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6h1u"]
+radius = 8.0
+
+[node name="Evergreen2" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Tree6" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(0, -12)
+color = Color(0.133333, 0.647059, 0.501961, 1)
+polygon = PackedVector2Array(442, 120, 427, 131, 458, 131)
+
+[node name="Trunk" type="Polygon2D" parent="."]
+z_index = 1
+position = Vector2(-1, 0)
+color = Color(0.698039, 0.568627, 0.294118, 1)
+polygon = PackedVector2Array(446, 113, 442.959, 113, 440, 113, 440, 122, 437, 117, 433, 117, 436, 125, 438, 133, 448, 133, 446.864, 126.74, 454, 118, 450, 116, 446, 121.982)
+
+[node name="Tree5" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(1, -13)
+color = Color(0, 0.933333, 0.670588, 1)
+polygon = PackedVector2Array(441, 120, 421, 131, 462, 131)
+
+[node name="Tree" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(6, -18)
+color = Color(0.141176, 0.807843, 0.615686, 1)
+polygon = PackedVector2Array(437, 116, 413, 134, 461, 134)
+
+[node name="Tree3" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(-16, -19)
+color = Color(0.0431373, 0.764706, 0.560784, 1)
+polygon = PackedVector2Array(458, 113, 434, 131, 482, 131)
+
+[node name="Tree2" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(1, -24)
+color = Color(0, 0.933333, 0.670588, 1)
+polygon = PackedVector2Array(442, 124, 424, 138, 461, 138)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(442, 126)
+shape = SubResource("CircleShape2D_s6h1u")
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_cvbtl")]
+collision_layer = 3
+collision_mask = 3
+force = 5.0
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(442, 111)
+rotation = -0.0701058
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[editable path="SoftCollision"]

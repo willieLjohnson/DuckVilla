@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqtmidfwten8"]
+
+[ext_resource type="Script" path="res://ECS/Players/Player.gd" id="1_ud7aw"]
+[ext_resource type="Texture2D" uid="uid://cuonjwk28nyhw" path="res://assets/ducks/duck-strong.png" id="2_mifn2"]
+[ext_resource type="PackedScene" uid="uid://d3rw0s7eglcg" path="res://ECS/common/SoftCollision.tscn" id="3_h21xf"]
+[ext_resource type="PackedScene" uid="uid://bgv4hiax0wfut" path="res://ECS/common/Trail.tscn" id="4_wixdr"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(5.5, 6)
+
+[sub_resource type="CircleShape2D" id="2"]
+
+[node name="Defender" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_ud7aw")
+speed = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mifn2")
+
+[node name="HitBox" type="Area2D" parent="." groups=["player"]]
+position = Vector2(2, 3)
+scale = Vector2(1.10995, 1.10995)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-2, -2)
+shape = SubResource("2")
+
+[node name="SoftCollision" parent="." instance=ExtResource("3_h21xf")]
+rotation = 0.261799
+scale = Vector2(1.39041, 1.39041)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trail" parent="." instance=ExtResource("4_wixdr")]
+targetPath = NodePath("..")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+[connection signal="area_entered" from="SoftCollision" to="." method="_on_SoftCollision_area_entered"]

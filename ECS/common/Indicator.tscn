@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk01oq2qe55v"]
+
+[ext_resource type="Script" path="res://ECS/common/Indicator.gd" id="1"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "Pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(0.189465, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.6, 0.6), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7jtq"]
+_data = {
+"Pulse": SubResource("1")
+}
+
+[node name="Indicator" type="Node2D"]
+script = ExtResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Pulse"
+libraries = {
+"": SubResource("AnimationLibrary_f7jtq")
+}
+
+[node name="Shape3D" type="Polygon2D" parent="."]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(0, 0, -32, 16, -24, 0, -32, -16)

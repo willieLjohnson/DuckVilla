@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://b17wajn0toc00"]
+
+[ext_resource type="Texture2D" uid="uid://bi7xb2bja0dso" path="res://assets/crumbs.png" id="1"]
+[ext_resource type="Script" path="res://ECS/Food.gd" id="2"]
+[ext_resource type="Animation" uid="uid://c0bahj3jc6mpx" path="res://ECS/common/Appear.tres" id="3"]
+[ext_resource type="Script" path="res://ECS/common/Magnet.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bk01oq2qe55v" path="res://ECS/common/Indicator.tscn" id="5"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 9.05539
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwwra"]
+_data = {
+"Appear": ExtResource("3")
+}
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 13.0384
+
+[node name="Crumbs" type="CharacterBody2D"]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Appear"
+libraries = {
+"": SubResource("AnimationLibrary_cwwra")
+}
+
+[node name="Magnet" type="Area2D" parent="."]
+script = ExtResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("2")
+
+[node name="HitBox" type="Area2D" parent="." groups=["food"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("3")
+
+[node name="Indicator" parent="." instance=ExtResource("5")]
+scale = Vector2(2, 2)
+offset = 20.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

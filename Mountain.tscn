@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://beir8ub7245k6"]
+
+[node name="Mountain" type="Node2D"]
+
+[node name="Front4" type="Polygon2D" parent="."]
+position = Vector2(210, -289)
+scale = Vector2(0.2, 0.2)
+color = Color(0, 0.6, 0.0941176, 1)
+polygon = PackedVector2Array(4310, 1255, 8725, 1680, 5910, -1265, 4490, -785, 3290, -1865, 1510, -1165, 370, -2405, -1230, -765, -3950, -2165, -8175, 1660)
+
+[node name="Front" type="Polygon2D" parent="."]
+position = Vector2(-820, -182)
+scale = Vector2(0.2, 0.2)
+color = Color(0.709804, 0.996078, 0, 1)
+polygon = PackedVector2Array(13820, 960, 7000, -2300, 4060, -483, 3088, -1334, 2385, -457, 1494, -1159, 1020, -960, 319, -1254, -3040, 1160, 7220, 1080)
+
+[node name="Front2" type="Polygon2D" parent="."]
+position = Vector2(-853, -27)
+scale = Vector2(0.2, 0.2)
+color = Color(0.4515, 0.63, 0, 1)
+polygon = PackedVector2Array(14025, 245, 8105, -1935, 4616, -705, 3576, -1758, 2725, -745, 2172, -1582, 1281, -880, 498, -1285, -2515, 325)
+
+[node name="Front3" type="Polygon2D" parent="."]
+position = Vector2(-610, -84)
+scale = Vector2(0.2, 0.2)
+color = Color(0, 0.886275, 0.137255, 1)
+polygon = PackedVector2Array(12530, 670, 9370, -1550, 5970, -410, 3910, -1790, 2130, -370, 1331.92, -1243.93, 250, -310, -1450, -1090, -3870, 610)

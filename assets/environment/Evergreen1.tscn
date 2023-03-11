@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bafgrp0n8qjnt"]
+
+[ext_resource type="PackedScene" uid="uid://d3rw0s7eglcg" path="res://ECS/common/SoftCollision.tscn" id="1_j6i5m"]
+
+[node name="Evergreen" type="Node2D"]
+position = Vector2(276, -59)
+
+[node name="Tree4" type="Polygon2D" parent="."]
+position = Vector2(-5.49918, 15.9091)
+color = Color(0.698039, 0.568627, 0.294118, 1)
+polygon = PackedVector2Array(446, 113, 440, 113, 440, 132, 446, 132)
+
+[node name="Tree" type="Polygon2D" parent="."]
+position = Vector2(-335.499, -125.091)
+scale = Vector2(1.75, 1.90909)
+color = Color(0, 0.933333, 0.670588, 1)
+polygon = PackedVector2Array(442, 120, 434, 131, 450, 131)
+
+[node name="Tree2" type="Polygon2D" parent="."]
+position = Vector2(-335.499, -119.091)
+scale = Vector2(1.75, 1.90909)
+color = Color(0, 0.933333, 0.670588, 1)
+polygon = PackedVector2Array(442, 120, 434, 131, 450, 131)
+
+[node name="Tree3" type="Polygon2D" parent="."]
+position = Vector2(-335.499, -114.091)
+scale = Vector2(1.75, 1.90909)
+color = Color(0, 0.933333, 0.670588, 1)
+polygon = PackedVector2Array(442, 120, 440.154, 122.538, 434, 131, 441.251, 131, 445.241, 131, 450, 131)
+
+[node name="SoftCollision" parent="." instance=ExtResource("1_j6i5m")]
+force = 5.0
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2(437, 135)
+
+[editable path="SoftCollision"]
