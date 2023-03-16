@@ -1,8 +1,8 @@
 bdbec74c6e5bd72edee867077d70896c
-::res://::1678993880
+::res://::1678994056
 2d_simple_water.gdshader::Shader::-1::1678913813::0::1::::<><>::
 default_env.tres::Environment::1377229898004232609::1678993869::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1678993822::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1678993940::0::1::::<><>::
 Game.gd::GDScript::-1::1678993767::0::1::::Game<>Node2D<>::
 Game.tscn::PackedScene::2075375353348115825::1678993866::0::1::::<><>::uid://dhwdam41r63sp<>uid://bjjjfme26g5xf<>res://Game.gd<>uid://bafgrp0n8qjnt<>uid://bka47hc00vdrm<>uid://bi2wfbspnegt<>uid://dwjjh4dty10ks
 Global.gd::GDScript::-1::1678849302::0::1::::<>Node<>::
@@ -11,7 +11,7 @@ Mountain.tscn::PackedScene::2684783253856597059::1678993868::0::1::::<><>::
 noise_texture.tres::NoiseTexture2D::5936015901162176005::1678913769::0::1::::<><>::
 SimpleWater.tscn::PackedScene::6212655170828316743::1678993868::0::1::::<><>::res://test.gdshader
 test.gdshader::Shader::-1::1678993871::0::1::::<><>::
-::res://assets/::1678913333
+::res://assets/::1678993881
 crumbs.png::CompressedTexture2D::3015391217639970342::1677632342::1678993881::1::::<><>::
 default_env.tres::Environment::-1::1678887127::0::1::::<><>::
 Font.ttf::FontFile::7659803621975829827::1677638101::1678042956::1::::<><>::
@@ -36,6 +36,17 @@ Lake2.tscn::PackedScene::8722556493102749754::1678993869::0::1::::<><>::res://te
 Lake.gdshader::Shader::-1::1678993871::0::1::::<><>::
 Lake.tscn::PackedScene::932235586388153372::1678993869::0::1::::<><>::res://assets/environment/Lake.gdshader
 Pond.tscn::PackedScene::3090127430191792306::1678993868::0::1::::<><>::
+::res://docks/::1678994057
+DuckVilla.apple-touch-icon.png::CompressedTexture2D::6572145455907794976::1678994057::1678994060::1::::<><>::
+DuckVilla.icon.png::CompressedTexture2D::4499956977472788922::1678994057::1678994060::1::::<><>::
+DuckVilla.png::CompressedTexture2D::3660297519480357199::1678994057::1678994060::1::::<><>::
+index.144x144.png::CompressedTexture2D::7992010875574510426::1678994057::1678994060::1::::<><>::
+index.180x180.png::CompressedTexture2D::5962855915516332294::1678994057::1678994060::1::::<><>::
+index.512x512.png::CompressedTexture2D::3119314947064444704::1678994057::1678994060::1::::<><>::
+index.apple-touch-icon.png::CompressedTexture2D::2088791148057647896::1678994057::1678994060::1::::<><>::
+index.icon.png::CompressedTexture2D::5923487004340604568::1678994057::1678994060::1::::<><>::
+index.manifest.json::JSON::-1::1678994057::0::1::::<><>::
+index.png::CompressedTexture2D::4342365364754530461::1678994057::1678994060::1::::<><>::
 ::res://ECS/::1678993867
 EntityManager.gd::GDScript::-1::1678913894::0::1::::<>Node2D<>::
 Food.gd::GDScript::-1::1678851232::0::1::::Food<>Node2D<>::
