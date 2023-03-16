@@ -1,17 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://b17wajn0toc00"]
+[gd_scene load_steps=12 format=3 uid="uid://b17wajn0toc00"]
 
 [ext_resource type="Texture2D" uid="uid://bi7xb2bja0dso" path="res://assets/crumbs.png" id="1"]
 [ext_resource type="Script" path="res://ECS/Food.gd" id="2"]
 [ext_resource type="Animation" uid="uid://c0bahj3jc6mpx" path="res://ECS/common/Appear.tres" id="3"]
 [ext_resource type="Script" path="res://ECS/common/Magnet.gd" id="4"]
+[ext_resource type="Animation" uid="uid://c8gf7l86ko5r3" path="res://ECS/common/Hover.res" id="4_y70jq"]
 [ext_resource type="PackedScene" uid="uid://bk01oq2qe55v" path="res://ECS/common/Indicator.tscn" id="5"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 9.05539
 
+[sub_resource type="Animation" id="Animation_4ft40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cwwra"]
 _data = {
-"Appear": ExtResource("3")
+"Appear": ExtResource("3"),
+"Hover": ExtResource("4_y70jq"),
+"RESET": SubResource("Animation_4ft40")
 }
 
 [sub_resource type="CircleShape2D" id="2"]
@@ -21,10 +39,13 @@ radius = 24.0
 radius = 13.0384
 
 [node name="Crumbs" type="CharacterBody2D"]
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(2, 2)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1")
 hframes = 2
@@ -38,6 +59,8 @@ autoplay = "Appear"
 libraries = {
 "": SubResource("AnimationLibrary_cwwra")
 }
+next/Appear = &"Hover"
+next/Hover = &"Hover"
 
 [node name="Magnet" type="Area2D" parent="."]
 script = ExtResource("4")
@@ -46,6 +69,8 @@ script = ExtResource("4")
 shape = SubResource("2")
 
 [node name="HitBox" type="Area2D" parent="." groups=["food"]]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("3")

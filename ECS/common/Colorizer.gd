@@ -8,4 +8,4 @@ func _ready():
     if node is Polygon2D:
       var color = (node as Polygon2D).color
       default_colors[node.name] = color
-      node.color = Color(color.r + Global.rng.randf_range(-randomness, randomness), color.g+ Global.rng.randf_range(-randomness, randomness), color.b + Global.rng.randf_range(-randomness, randomness))
+      node.color = Color(color.r + Global.rng.randf_range(-randomness, randomness), color.g + Global.rng.randf_range(-randomness, randomness), color.b + Global.rng.randf_range(-randomness, randomness))

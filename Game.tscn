@@ -1,32 +1,75 @@
-[gd_scene load_steps=7 format=3 uid="uid://4tlem7pt3vuf"]
+[gd_scene load_steps=8 format=3 uid="uid://4tlem7pt3vuf"]
 
 [ext_resource type="PackedScene" uid="uid://dhwdam41r63sp" path="res://ECS/Players/Player.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://dn8x20n1ny1m0" path="res://ECS/ObjectPooler.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bjjjfme26g5xf" path="res://ECS/ObjectPooler.tscn" id="2"]
 [ext_resource type="Script" path="res://Game.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://njt1wgwpygau" path="res://assets/environment/Lake.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://bafgrp0n8qjnt" path="res://assets/environment/Evergreen1.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bka47hc00vdrm" path="res://assets/environment/Pond.tscn" id="6_1hgpa"]
 [ext_resource type="PackedScene" uid="uid://bi2wfbspnegt" path="res://assets/environment/Evergreen.tscn" id="6_4u1sv"]
+[ext_resource type="PackedScene" uid="uid://dwjjh4dty10ks" path="res://assets/environment/Lake2.tscn" id="7_jvxdy"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("3")
 
-[node name="ObjectPooler" parent="." instance=ExtResource("2")]
+[node name="EntityManager" parent="." instance=ExtResource("2")]
 
-[node name="Lake" parent="." instance=ExtResource("5")]
-polygon = PackedVector2Array(342, 51, 226, 75, 182, 98, 146, 133, 130, 167, 122, 201, 124, 236, 133, 262, 158, 284, 206, 296, 251, 288, 295, 253, 351, 175, 389, 148, 418, 119, 435, 110, 464, 107, 480, 118, 487, 131, 487, 173, 494, 228, 503, 270, 542, 333, 585, 379, 640, 414, 681, 436, 751, 453, 832, 452, 892, 437, 945, 422, 991, 398, 1016, 338, 1018, 303, 995, 267, 944, 242, 882, 227, 813, 225, 757, 215, 709, 194, 678, 160, 653, 122, 628, 95, 606, 61, 547, 37, 452, 34)
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Evergreen" parent="Environment" instance=ExtResource("6")]
+position = Vector2(971, -97)
+
+[node name="Evergreen3" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(340, -178)
+
+[node name="Pond" parent="Environment" instance=ExtResource("6_1hgpa")]
+position = Vector2(2772, 222)
+
+[node name="Lake2" parent="Environment" instance=ExtResource("7_jvxdy")]
+position = Vector2(-647, -1662)
+scale = Vector2(3.53181, 3.49536)
+polygon = PackedVector2Array(347.414, -263.206, 191.12, -177.664, -222.832, 141.33, -256.809, 422.56, -147.823, 546.154, -91.5225, 648.901, 185.882, 833.789, 489.187, 930.775, 723.156, 1013.46, 1049.76, 1030.34, 1316.11, 1047.5, 1508.93, 1022.08, 1592.43, 958.526, 1566.33, 854.139, 1291.43, 818.349, 1116.22, 799.078, 864.221, 774.282, 643.914, 749.964, 317.382, 672.432, 160.606, 588.321, 135.672, 497.057, 209.67, 411.813, 326.985, 400, 418.508, 406.868, 472.589, 443.956, 594.896, 460.44, 683.091, 467.308, 782.929, 465.3, 886.382, 463.736, 936.858, 453.297, 1128.59, 444.13, 1248.48, 463.584, 1486.2, 562.858, 1901.54, 532.246, 2150.88, 384.908, 2227.73, 250.185, 2164.67, 49.6393, 2081.71, -55.4054, 1983.8, -103.928, 1774.82, -182.416, 1485.18, -245.356, 1068.13, -296.281, 893.593, -355.9, 615.549, -318.136)
+
+[node name="Evergreen2" parent="Environment" instance=ExtResource("6")]
+position = Vector2(2659, 488)
+
+[node name="Evergreen4" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(1272, 397)
+
+[node name="Evergreen5" parent="Environment" instance=ExtResource("6")]
+position = Vector2(3350, 164)
+
+[node name="Evergreen6" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(2676, 126)
+
+[node name="Evergreen7" parent="Environment" instance=ExtResource("6")]
+position = Vector2(3254, 597)
+
+[node name="Evergreen8" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(2942, 568)
+
+[node name="Evergreen9" parent="Environment" instance=ExtResource("6")]
+position = Vector2(3610, 1987)
+
+[node name="Evergreen10" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(2149, 1901)
+
+[node name="Evergreen11" parent="Environment" instance=ExtResource("6")]
+position = Vector2(4714, 1425)
+
+[node name="Evergreen12" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(3904, 1902)
+
+[node name="Evergreen13" parent="Environment" instance=ExtResource("6")]
+position = Vector2(2790, 1892)
+
+[node name="Evergreen14" parent="Environment" instance=ExtResource("6_4u1sv")]
+position = Vector2(4390, 1772)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(368, 176)
-rotation = 2.87979
-scale = Vector2(1, 1)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
-
-[node name="HUD" type="Control" parent="Camera2D"]
-layout_mode = 3
-anchors_preset = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Ducks" type="Node2D" parent="."]
 
@@ -38,11 +81,5 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
-
-[node name="Environment" type="Node2D" parent="."]
-
-[node name="Evergreen" parent="Environment" instance=ExtResource("6")]
-
-[node name="Evergreen3" parent="Environment" instance=ExtResource("6_4u1sv")]
 
 [editable path="Ducks/Player"]

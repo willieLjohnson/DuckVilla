@@ -48,6 +48,7 @@ func spawn_from_pool(tag: String, position: Vector2, rotation: float):
   object_to_spawn.position = position
   object_to_spawn.rotation = rotation
 
+
   if object_to_spawn.has_method('on_object_spawned'):
     object_to_spawn.on_object_spawned()
 

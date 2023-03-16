@@ -13,7 +13,7 @@ size = Vector2(5.5, 6)
 [node name="Defender" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_ud7aw")
-speed = 2.0
+speed = 3.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)

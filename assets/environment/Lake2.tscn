@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwjjh4dty10ks"]
+
+[ext_resource type="Shader" path="res://test.gdshader" id="1_x7mix"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_617a5"]
+shader = ExtResource("1_x7mix")
+shader_parameter/WATER_COL = Color(0.290196, 0.552941, 0.992157, 1)
+shader_parameter/WATER2_COL = Color(0.290196, 0.552941, 0.992157, 1)
+shader_parameter/FOAM_COL = Color(0.396078, 0.619608, 0.996078, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(0.05, 0.05)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3udm8"]
+
+[node name="Lake2" type="Polygon2D"]
+material = SubResource("ShaderMaterial_617a5")
+position = Vector2(1866, 307)
+scale = Vector2(2.64823, 2.90585)
+color = Color(0.0431373, 0.752941, 0.768627, 1)
+texture = SubResource("CanvasTexture_3udm8")
+polygon = PackedVector2Array(342, 51, 226, 75, 153, 138, 122, 201, -15.8596, 294.922, -104.598, 447.029, -147.823, 546.154, -91.5225, 648.901, 49.3667, 718.681, 258.759, 800.824, 556.623, 806.044, 672.552, 723.901, 638.162, 591.909, 478.968, 528.571, 341.684, 523.352, 175.211, 579.521, 132.164, 487.293, 209.67, 411.813, 326.985, 400, 418.508, 406.868, 472.589, 443.956, 594.896, 460.44, 683.091, 467.308, 798.187, 487.088, 886.382, 463.736, 936.858, 453.297, 1097.54, 423.972, 1262.56, 456.321, 1432.86, 639.055, 1547.85, 694.545, 1846.72, 706.161, 2056.28, 626.062, 2159.26, 442.211, 2227.73, 250.185, 2164.67, 49.6393, 2081.71, -55.4054, 1983.8, -103.928, 1745.15, -90.1629, 1549.57, 27.8748, 1486.65, -8.25921, 1410.38, 3.44132, 1371.69, -50.9317, 1328.19, -169.231, 1185.63, -259.89, 984.838, -300, 850.327, -237.088, 771.563, -73.0769, 718.801, -27.5307, 617.224, 16.5184, 452, 34)

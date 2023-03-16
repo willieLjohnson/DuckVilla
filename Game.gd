@@ -1,44 +1,51 @@
-extends Node2D
+class_name Game extends Node2D
 
 @onready var score = 0
 @onready var duck_node = $Ducks
-@onready var object_pooler = $ObjectPooler
+@onready var entity_manager = $EntityManager
 @onready var timer = $Timer
 
 func _ready():
   randomize()
-  Global.node_creation_parent = self
-  Global.object_pooler = object_pooler
+  Global.game = self
+  Global.entity_manager = entity_manager
   Global.player = $Ducks/Player
   timer.connect("timeout", Callable(self, "_spawn_food"))
   connect("update_score", Callable(self, "_update_score"))
   timer.start()
-  for i in 10:
-    _spawn_duck(Vector2(2 * i, 2 * i))
+  _spawn_player(1)
+  _spawn_duck()
 
-func _spawn_duck(position: Vector2 = Vector2.ZERO):
-  if position == Vector2.ZERO: position = Global.player.position
+func _spawn_duck(pos: Vector2 = Vector2.ZERO):
+  if pos == Vector2.ZERO: pos = Global.player.position
   var new_duck = Global.GREENDUCK_SCENE.instantiate()
-  new_duck.position = position
+  new_duck.position = pos + Global.random_vec(-10, 10)
   new_duck.follow_player = true
   add_child(new_duck)
 
-func _spawn_player():
-  if position == Vector2.ZERO: position = Global.player.position
-  var new_player = Global.DEFENDER_SCENE.instantiate()
-  new_player.position = position + Vector2(100, 100)
-  new_player.follow_player = false
+func _spawn_player(type = 0, pos = Vector2.ZERO):
+  if pos == Vector2.ZERO: pos = Global.player.position
+  var new_player
+  if type == 0:
+    new_player = Global.DEFENDER_SCENE.instantiate()
+  else:
+    new_player = Global.SCOUT_SCENE.instantiate()
 
+  new_player.position = pos + Global.random_vec(10, 10)
+  new_player.follow_player = false
   duck_node.add_child(new_player)
 
 func _spawn_food():
   var randx = Global.rng.randf_range(0, Global.camera_rect.size.x)
   var randy = Global.rng.randf_range(0, Global.camera_rect.size.y)
-  var crumbs = Global.object_pooler.spawn_from_pool("food", Vector2(randx, randy), 10)
+  var crumbs = Global.entity_manager.spawn_from_pool("food", Vector2(randx, randy), 10)
   add_child(crumbs)
 
-func _update_score():
-  if Global.score % 10 == 0:
-    _spawn_duck()
-  elif Global.score % 20 == 0:
+func score_updated():
+  if Global.score % 12 == 0:
+    _spawn_player(1)
+  elif Global.score % 8 == 0:
     _spawn_player()
+  elif Global.score % 4 == 0:
+    _spawn_duck()
+

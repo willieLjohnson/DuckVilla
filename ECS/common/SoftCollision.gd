@@ -6,18 +6,21 @@ func get_collisions():
   var areas = get_overlapping_areas()
   return [areas.size() > 0, areas]
 
-func _get_soft_colliders():
+func _get_soft_colliders(group: String = "none"):
   var areas = []
   for area in get_overlapping_areas():
     if area is SoftCollider:
-      areas.append(area)
+      if group == "none" or area.is_in_group(group):
+        areas.append(area)
   return [areas.size() > 0, areas]
 
-func is_colliding_with(group):
-  for area in  get_overlapping_areas():
-    if area.is_in_group(group):
-      return true
-  return false
+func _get_first_collider(group: String = "none"):
+  for area in get_overlapping_areas():
+    if area is SoftCollider:
+      if group == "none" or area.is_in_group(group):
+        return area
+  return null
+
 
 func get_push_vector_and_area():
   var collisions = _get_soft_colliders()

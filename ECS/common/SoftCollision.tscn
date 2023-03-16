@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ECS/common/SoftCollision.gd" id="1_6mbn0"]
 
 [sub_resource type="CircleShape2D" id="1"]
-radius = 17.0294
+radius = 18.9737
 
 [node name="SoftCollision" type="Area2D"]
 script = ExtResource("1_6mbn0")

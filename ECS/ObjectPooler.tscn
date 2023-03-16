@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8x20n1ny1m0"]
+[gd_scene load_steps=6 format=3 uid="uid://bjjjfme26g5xf"]
 
-[ext_resource type="Script" path="res://ECS/ObjectPooler.gd" id="1"]
+[ext_resource type="Script" path="res://ECS/EntityManager.gd" id="1_643rp"]
 [ext_resource type="PackedScene" uid="uid://b17wajn0toc00" path="res://ECS/Food/Crumbs.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://puux12q8redw" path="res://ECS/Players/GreenDuck.tscn" id="3_71lfk"]
 [ext_resource type="PackedScene" uid="uid://3tfx7g81sug0" path="res://ECS/Players/WorkerDuck.tscn" id="4_upndn"]
 [ext_resource type="PackedScene" uid="uid://bwj6m8t41b3qd" path="res://ECS/Players/ScoutDuck.tscn" id="5_wc4qi"]
 
-[node name="ObjectPooler" type="Node2D"]
-script = ExtResource("1")
+[node name="EntityManager" type="Node2D"]
+script = ExtResource("1_643rp")
 pools = [{
 "scene": ExtResource("2"),
 "size": 100,

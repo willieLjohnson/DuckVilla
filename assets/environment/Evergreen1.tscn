@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3rw0s7eglcg" path="res://ECS/common/SoftCollision.tscn" id="1_j6i5m"]
 
-[node name="Evergreen" type="Node2D"]
+[node name="Evergreen2" type="Node2D"]
 position = Vector2(276, -59)
 
 [node name="Tree4" type="Polygon2D" parent="."]

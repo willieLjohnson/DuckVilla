@@ -8,11 +8,9 @@ const WORKER_SCENE = preload("res://ECS/Players/WorkerDuck.tscn")
 
 const save_file_path = "user://savegame.save"
 
-var node_creation_parent: Node2D
-
 var player: CharacterBody2D
 var camera: Camera2D
-
+var game: Game
 var is_ios: bool
 var is_android: bool
 var is_mobile: bool
@@ -23,7 +21,7 @@ var is_player_dead: bool = false
 var score: int = 0
 var high_score: int = 0
 
-var object_pooler: Node2D
+var entity_manager: Node2D
 @onready var camera_rect: Rect2 : get = get_camera_rect
 @onready var rng = RandomNumberGenerator.new()
 
@@ -33,7 +31,7 @@ func instance_node(node, location, parent):
   if parent != null: parent.add_child(node_instance)
   return node_instance
 
-func instance_popup_label(position, text, modulate = Color.WHITE, scale = 1, z_index = 5, parent = node_creation_parent):
+func instance_popup_label(position, text, modulate = Color.WHITE, scale = 1, z_index = 5, parent = game):
   var label = instance_node(POPUP_LABEL_SCENE, null, parent)
   label.text = text
   label.modulate = modulate
@@ -43,19 +41,27 @@ func instance_popup_label(position, text, modulate = Color.WHITE, scale = 1, z_i
   return label
 
 func get_camera_rect():
-  if node_creation_parent != null:
+  if game != null:
     if camera == null:
-      camera = node_creation_parent.get_node("Camera2D")
+      camera = game.get_node("Camera2D")
     update_OS_status()
     return camera.get_viewport().get_visible_rect()
+
+func food_pickup(food: Food):
+  score += food.value
+  instance_popup_label(food.global_position, str(score), food.modulate, 15)
+  game.score_updated()
+
+func random_vec(min, max):
+  return Vector2(rng.randf_range(min,max), rng.randf_range(min,max))
 
 func get_camera_size():
   return get_camera_rect().size
 
 func play_sound(sound, volume = 0, pitch = 1):
-  if node_creation_parent != null:
+  if game != null:
     var audioStreamPlayer = AudioStreamPlayer.new()
-    node_creation_parent.add_child(audioStreamPlayer)
+    game.add_child(audioStreamPlayer)
     audioStreamPlayer.stream = load(sound)
     audioStreamPlayer.volume_db = volume
     audioStreamPlayer.pitch_scale = pitch

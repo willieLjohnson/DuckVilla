@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwj6m8t41b3qd"]
+[gd_scene load_steps=8 format=3 uid="uid://bwj6m8t41b3qd"]
 
 [ext_resource type="Script" path="res://ECS/Players/Player.gd" id="1_snbfb"]
 [ext_resource type="Texture2D" uid="uid://byywfakmdolp6" path="res://assets/ducks/duck-hat.png" id="2_ncvi7"]
 [ext_resource type="PackedScene" uid="uid://d3rw0s7eglcg" path="res://ECS/common/SoftCollision.tscn" id="3_3r663"]
 [ext_resource type="PackedScene" uid="uid://bgv4hiax0wfut" path="res://ECS/common/Trail.tscn" id="4_52grk"]
+[ext_resource type="PackedScene" uid="uid://bjqgsqp5qacpe" path="res://ECS/Players/FoodRadar.tscn" id="5_skyxh"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(5.5, 6)
@@ -22,6 +23,13 @@ texture = ExtResource("2_ncvi7")
 position = Vector2(0.5, 2)
 shape = SubResource("1")
 
+[node name="SoftCollision" parent="." instance=ExtResource("3_3r663")]
+position = Vector2(1.49012e-08, 1.49012e-08)
+rotation = 0.261799
+scale = Vector2(0.781262, 0.781262)
+collision_layer = 2
+collision_mask = 2
+
 [node name="HitBox" type="Area2D" parent="." groups=["player"]]
 position = Vector2(2, 2)
 scale = Vector2(0.880001, 0.880001)
@@ -30,14 +38,11 @@ scale = Vector2(0.880001, 0.880001)
 position = Vector2(-2, -2)
 shape = SubResource("2")
 
-[node name="SoftCollision" parent="." instance=ExtResource("3_3r663")]
-rotation = 0.261799
-scale = Vector2(0.781262, 0.781262)
-collision_layer = 2
-collision_mask = 2
-
 [node name="Trail" parent="." instance=ExtResource("4_52grk")]
 targetPath = NodePath("..")
 
-[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+[node name="FoodRadar" parent="." instance=ExtResource("5_skyxh")]
+scale = Vector2(2.01883, 2.01883)
+
 [connection signal="area_entered" from="SoftCollision" to="." method="_on_SoftCollision_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
