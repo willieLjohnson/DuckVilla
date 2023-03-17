@@ -20,3 +20,8 @@ res://Mountain.tscn
 res://ECS/Players/FoodRadar.tscn
 res://SimpleWater.tscn
 res://assets/environment/Lake.tscn
+res://ECS/common/Circle.tscn
+res://assets/Environment/Evergreen.tscn
+res://assets/Environment/Evergreen1.tscn
+res://assets/Environment/Pond.tscn
+res://assets/Environment/Lake2.tscn
