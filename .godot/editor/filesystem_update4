@@ -1,10 +1,8 @@
 res://default_env.tres
-res://assets/environment/Lake.tscn
+res://Game.tscn
 res://ECS/EntityManager.gd
 res://test.gdshader
 res://assets/environment/Lake.gdshader
-res://assets/environment/Lake2.tscn
-res://Game.tscn
 res://ECS/PopupLabel.tscn
 res://ECS/Players/GreenDuck.tscn
 res://ECS/Players/Player.tscn
@@ -21,8 +19,9 @@ res://ECS/common/Indicator.tscn
 res://Mountain.tscn
 res://ECS/Players/FoodRadar.tscn
 res://SimpleWater.tscn
+res://assets/environment/Lake.tscn
+res://assets/environment/Lake2.tscn
 res://assets/Environment/Evergreen.tscn
 res://assets/Environment/Evergreen1.tscn
 res://assets/Environment/Pond.tscn
 res://assets/Environment/Lake2.tscn
-res://Game.gd
